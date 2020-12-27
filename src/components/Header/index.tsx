@@ -1,4 +1,4 @@
-import { ChainId, TokenAmount } from '@uniswap/sdk'
+import { ChainId, TokenAmount } from '@valueswap/sdk'
 import React, { useState } from 'react'
 import { Text } from 'rebass'
 import { NavLink } from 'react-router-dom'
@@ -11,7 +11,7 @@ import Logo from '../../assets/svg/logo.svg'
 import LogoDark from '../../assets/svg/logo_white.svg'
 import { useActiveWeb3React } from '../../hooks'
 import { useDarkModeManager } from '../../state/user/hooks'
-import { useETHBalances, useAggregateUniBalance } from '../../state/wallet/hooks'
+import { useETHBalances, useAggregateVntwBalance } from '../../state/wallet/hooks'
 import { CardNoise } from '../earn/styled'
 import { CountUp } from 'use-count-up'
 import { TYPE, ExternalLink } from '../../theme'
@@ -28,7 +28,7 @@ import { useUserHasAvailableClaim } from '../../state/claim/hooks'
 import { useUserHasSubmittedClaim } from '../../state/transactions/hooks'
 import { Dots } from '../swap/styleds'
 import Modal from '../Modal'
-import UniBalanceContent from './UniBalanceContent'
+import VntwBalanceContent from './VntwBalanceContent'
 import usePrevious from '../../hooks/usePrevious'
 
 const HeaderFrame = styled.div`
@@ -125,7 +125,7 @@ const AccountElement = styled.div<{ active: boolean }>`
   }
 `
 
-const UNIAmount = styled(AccountElement)`
+const VNTWAmount = styled(AccountElement)`
   color: white;
   padding: 4px 8px;
   height: 36px;
@@ -134,7 +134,7 @@ const UNIAmount = styled(AccountElement)`
   background: radial-gradient(174.47% 188.91% at 1.84% 0%, #ff007a 0%, #2172e5 100%), #edeef2;
 `
 
-const UNIWrapper = styled.span`
+const VNTWWrapper = styled.span`
   width: fit-content;
   position: relative;
   cursor: pointer;
@@ -187,7 +187,7 @@ const Title = styled.a`
   }
 `
 
-const UniIcon = styled.div`
+const VntwIcon = styled.div`
   transition: transform 0.3s ease;
   :hover {
     transform: rotate(-5deg);
@@ -274,9 +274,9 @@ export default function Header() {
 
   const { claimTxn } = useUserHasSubmittedClaim(account ?? undefined)
 
-  const aggregateBalance: TokenAmount | undefined = useAggregateUniBalance()
+  const aggregateBalance: TokenAmount | undefined = useAggregateVntwBalance()
 
-  const [showUniBalanceModal, setShowUniBalanceModal] = useState(false)
+  const [showVntwBalanceModal, setShowVntwBalanceModal] = useState(false)
   const showClaimPopup = useShowClaimPopup()
 
   const countUpValue = aggregateBalance?.toFixed(0) ?? '0'
@@ -285,14 +285,14 @@ export default function Header() {
   return (
     <HeaderFrame>
       <ClaimModal />
-      <Modal isOpen={showUniBalanceModal} onDismiss={() => setShowUniBalanceModal(false)}>
-        <UniBalanceContent setShowUniBalanceModal={setShowUniBalanceModal} />
+      <Modal isOpen={showVntwBalanceModal} onDismiss={() => setShowVntwBalanceModal(false)}>
+        <VntwBalanceContent setShowVntwBalanceModal={setShowVntwBalanceModal} />
       </Modal>
       <HeaderRow>
         <Title href=".">
-          <UniIcon>
+          <VntwIcon>
             <img width={'24px'} src={isDark ? LogoDark : Logo} alt="logo" />
-          </UniIcon>
+          </VntwIcon>
         </Title>
         <HeaderLinks>
           <StyledNavLink id={`swap-nav-link`} to={'/swap'}>
@@ -311,13 +311,13 @@ export default function Header() {
           >
             {t('pool')}
           </StyledNavLink>
-          <StyledNavLink id={`stake-nav-link`} to={'/uni'}>
-            UNI
+          <StyledNavLink id={`stake-nav-link`} to={'/vntw'}>
+            VNTW
           </StyledNavLink>
           <StyledNavLink id={`stake-nav-link`} to={'/vote'}>
             Vote
           </StyledNavLink>
-          <StyledExternalLink id={`stake-nav-link`} href={'https://uniswap.info'}>
+          <StyledExternalLink id={`stake-nav-link`} href={'https://valuenetworklive2021.github.io/valueswap-info'}>
             Charts <span style={{ fontSize: '11px' }}>↗</span>
           </StyledExternalLink>
         </HeaderLinks>
@@ -330,18 +330,18 @@ export default function Header() {
             )}
           </HideSmall>
           {availableClaim && !showClaimPopup && (
-            <UNIWrapper onClick={toggleClaimModal}>
-              <UNIAmount active={!!account && !availableClaim} style={{ pointerEvents: 'auto' }}>
+            <VNTWWrapper onClick={toggleClaimModal}>
+              <VNTWAmount active={!!account && !availableClaim} style={{ pointerEvents: 'auto' }}>
                 <TYPE.white padding="0 2px">
-                  {claimTxn && !claimTxn?.receipt ? <Dots>Claiming UNI</Dots> : 'Claim UNI'}
+                  {claimTxn && !claimTxn?.receipt ? <Dots>Claiming VNTW</Dots> : 'Claim VNTW'}
                 </TYPE.white>
-              </UNIAmount>
+              </VNTWAmount>
               <CardNoise />
-            </UNIWrapper>
+            </VNTWWrapper>
           )}
           {!availableClaim && aggregateBalance && (
-            <UNIWrapper onClick={() => setShowUniBalanceModal(true)}>
-              <UNIAmount active={!!account && !availableClaim} style={{ pointerEvents: 'auto' }}>
+            <VNTWWrapper onClick={() => setShowVntwBalanceModal(true)}>
+              <VNTWAmount active={!!account && !availableClaim} style={{ pointerEvents: 'auto' }}>
                 {account && (
                   <HideSmall>
                     <TYPE.white
@@ -360,10 +360,10 @@ export default function Header() {
                     </TYPE.white>
                   </HideSmall>
                 )}
-                UNI
-              </UNIAmount>
+                VNTW
+              </VNTWAmount>
               <CardNoise />
-            </UNIWrapper>
+            </VNTWWrapper>
           )}
           <AccountElement active={!!account} style={{ pointerEvents: 'auto' }}>
             {account && userEthBalance ? (

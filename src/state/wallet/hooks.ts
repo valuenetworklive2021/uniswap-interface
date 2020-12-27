@@ -1,5 +1,5 @@
-import { UNI } from './../../constants/index'
-import { Currency, CurrencyAmount, ETHER, JSBI, Token, TokenAmount } from '@uniswap/sdk'
+import { VNTW } from './../../constants/index'
+import { Currency, CurrencyAmount, ETHER, JSBI, Token, TokenAmount } from '@valueswap/sdk'
 import { useMemo } from 'react'
 import ERC20_INTERFACE from '../../constants/abis/erc20'
 import { useAllTokens } from '../../hooks/Tokens'
@@ -8,7 +8,7 @@ import { useMulticallContract } from '../../hooks/useContract'
 import { isAddress } from '../../utils'
 import { useSingleContractMultipleData, useMultipleContractSingleData } from '../multicall/hooks'
 import { useUserUnclaimedAmount } from '../claim/hooks'
-import { useTotalUniEarned } from '../stake/hooks'
+import { useTotalVntwEarned } from '../stake/hooks'
 
 /**
  * Returns a map of the given addresses to their eventually consistent ETH balances.
@@ -134,23 +134,23 @@ export function useAllTokenBalances(): { [tokenAddress: string]: TokenAmount | u
   return balances ?? {}
 }
 
-// get the total owned, unclaimed, and unharvested UNI for account
-export function useAggregateUniBalance(): TokenAmount | undefined {
+// get the total owned, unclaimed, and unharvested VNTW for account
+export function useAggregateVntwBalance(): TokenAmount | undefined {
   const { account, chainId } = useActiveWeb3React()
 
-  const uni = chainId ? UNI[chainId] : undefined
+  const vntw = chainId ? VNTW[chainId] : undefined
 
-  const uniBalance: TokenAmount | undefined = useTokenBalance(account ?? undefined, uni)
-  const uniUnclaimed: TokenAmount | undefined = useUserUnclaimedAmount(account)
-  const uniUnHarvested: TokenAmount | undefined = useTotalUniEarned()
+  const vntwBalance: TokenAmount | undefined = useTokenBalance(account ?? undefined, vntw)
+  const vntwUnclaimed: TokenAmount | undefined = useUserUnclaimedAmount(account)
+  const vntwUnHarvested: TokenAmount | undefined = useTotalVntwEarned()
 
-  if (!uni) return undefined
+  if (!vntw) return undefined
 
   return new TokenAmount(
-    uni,
+    vntw,
     JSBI.add(
-      JSBI.add(uniBalance?.raw ?? JSBI.BigInt(0), uniUnclaimed?.raw ?? JSBI.BigInt(0)),
-      uniUnHarvested?.raw ?? JSBI.BigInt(0)
+      JSBI.add(vntwBalance?.raw ?? JSBI.BigInt(0), vntwUnclaimed?.raw ?? JSBI.BigInt(0)),
+      vntwUnHarvested?.raw ?? JSBI.BigInt(0)
     )
   )
 }

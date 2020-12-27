@@ -85,7 +85,7 @@ const MenuItem = styled(ExternalLink)`
   }
 `
 
-const CODE_LINK = 'https://github.com/Uniswap/uniswap-interface'
+const CODE_LINK = 'https://github.com/valuenetworklive2021/valueswap-interface'
 
 export default function Menu() {
   const { account } = useActiveWeb3React()
@@ -105,11 +105,11 @@ export default function Menu() {
 
       {open && (
         <MenuFlyout>
-          <MenuItem id="link" href="https://uniswap.org/">
+          <MenuItem id="link" href="https://valuenetworklive2021.github.io/valueswap-protocol/">
             <Info size={14} />
             About
           </MenuItem>
-          <MenuItem id="link" href="https://uniswap.org/docs/v2">
+          <MenuItem id="link" href="https://valuenetworklive2021.github.io/valueswap-protocol/docs/v2">
             <BookOpen size={14} />
             Docs
           </MenuItem>
@@ -121,13 +121,13 @@ export default function Menu() {
             <MessageCircle size={14} />
             Discord
           </MenuItem>
-          <MenuItem id="link" href="https://uniswap.info/">
+          <MenuItem id="link" href="https://valuenetworklive2021.github.io/valueswap-info/">
             <PieChart size={14} />
             Analytics
           </MenuItem>
           {account && (
             <ButtonPrimary onClick={openClaimModal} padding="8px 16px" width="100%" borderRadius="12px" mt="0.5rem">
-              Claim UNI
+              Claim VNTW
             </ButtonPrimary>
           )}
         </MenuFlyout>

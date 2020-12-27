@@ -1,9 +1,9 @@
-import { ChainId, JSBI, Percent, Token, WETH } from '@uniswap/sdk'
+import { ChainId, JSBI, Percent, Token, WETH } from '@valueswap/sdk'
 import { AbstractConnector } from '@web3-react/abstract-connector'
 
 import { fortmatic, injected, portis, walletconnect, walletlink } from '../connectors'
 
-export const ROUTER_ADDRESS = '0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D'
+export const ROUTER_ADDRESS = '0x5c227fdFFb6cE28d521E26aC6Da1c5Ee6b22A299' // ?!?
 
 export const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000'
 
@@ -27,28 +27,29 @@ export const AVERAGE_BLOCK_TIME_IN_SECS = 14
 export const PROPOSAL_LENGTH_IN_BLOCKS = 40_320
 export const PROPOSAL_LENGTH_IN_SECS = AVERAGE_BLOCK_TIME_IN_SECS * PROPOSAL_LENGTH_IN_BLOCKS
 
-export const GOVERNANCE_ADDRESS = '0x5e4be8Bc9637f0EAA1A755019e06A68ce081D58F'
+export const GOVERNANCE_ADDRESS = '0x30dA777Bd6A59228103a212076e28B8DFFA34cae' // ?!?
 
-export const TIMELOCK_ADDRESS = '0x1a9C8182C09F50C8318d769245beA52c32BE35BC'
+export const TIMELOCK_ADDRESS = '0x17835680bd01AdE4DAB11cbd70Aa7Dc4e5321B12' // ?!?
 
-const UNI_ADDRESS = '0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984'
-export const UNI: { [chainId in ChainId]: Token } = {
-  [ChainId.MAINNET]: new Token(ChainId.MAINNET, UNI_ADDRESS, 18, 'UNI', 'Uniswap'),
-  [ChainId.RINKEBY]: new Token(ChainId.RINKEBY, UNI_ADDRESS, 18, 'UNI', 'Uniswap'),
-  [ChainId.ROPSTEN]: new Token(ChainId.ROPSTEN, UNI_ADDRESS, 18, 'UNI', 'Uniswap'),
-  [ChainId.GÖRLI]: new Token(ChainId.GÖRLI, UNI_ADDRESS, 18, 'UNI', 'Uniswap'),
-  [ChainId.KOVAN]: new Token(ChainId.KOVAN, UNI_ADDRESS, 18, 'UNI', 'Uniswap')
+const VNTW_ADDRESS = '0xFa29FfdeB7666133C97768Fb438f268bd3dD0f50' // ?!?
+export const VNTW: { [chainId in ChainId]: Token } = {
+  [ChainId.MAINNET]: new Token(ChainId.MAINNET, VNTW_ADDRESS, 18, 'VNTW', 'Valueswap'),
+  [ChainId.RINKEBY]: new Token(ChainId.RINKEBY, VNTW_ADDRESS, 18, 'VNTW', 'Valueswap'),
+  [ChainId.ROPSTEN]: new Token(ChainId.ROPSTEN, VNTW_ADDRESS, 18, 'VNTW', 'Valueswap'),
+  [ChainId.GÖRLI]: new Token(ChainId.GÖRLI, VNTW_ADDRESS, 18, 'VNTW', 'Valueswap'),
+  [ChainId.KOVAN]: new Token(ChainId.KOVAN, VNTW_ADDRESS, 18, 'VNTW', 'Valueswap')
 }
 
 export const COMMON_CONTRACT_NAMES: { [address: string]: string } = {
-  [UNI_ADDRESS]: 'UNI',
+  [VNTW_ADDRESS]: 'VNTW',
   [GOVERNANCE_ADDRESS]: 'Governance',
   [TIMELOCK_ADDRESS]: 'Timelock'
 }
 
 // TODO: specify merkle distributor for mainnet
 export const MERKLE_DISTRIBUTOR_ADDRESS: { [chainId in ChainId]?: string } = {
-  [ChainId.MAINNET]: '0x090D4613473dEE047c3f2706764f49E0821D256e'
+  [ChainId.MAINNET]: '0xA486F971952F599bDc9e2Cd44927ee8D4fa717b8' // ?!?
+  [ChainId.ROPSTEN]: '0xA486F971952F599bDc9e2Cd44927ee8D4fa717b8' // ?!?
 }
 
 const WETH_ONLY: ChainTokenList = {

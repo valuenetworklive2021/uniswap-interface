@@ -17,9 +17,9 @@ describe('uriToHttp', () => {
     ])
   })
   it('returns ipns gateways for ipns:// urls', () => {
-    expect(uriToHttp('ipns://app.uniswap.org')).toEqual([
-      'https://cloudflare-ipfs.com/ipns/app.uniswap.org/',
-      'https://ipfs.io/ipns/app.uniswap.org/'
+    expect(uriToHttp('ipns://valuenetworklive2021.github.io/valueswap-interface')).toEqual([
+      'https://cloudflare-ipfs.com/ipns/valuenetworklive2021.github.io/valueswap-interface/',
+      'https://ipfs.io/ipns/valuenetworklive2021.github.io/valueswap-interface/'
     ])
   })
   it('returns empty array for invalid scheme', () => {

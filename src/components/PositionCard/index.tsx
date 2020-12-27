@@ -1,4 +1,4 @@
-import { JSBI, Pair, Percent, TokenAmount } from '@uniswap/sdk'
+import { JSBI, Pair, Percent, TokenAmount } from '@valueswap/sdk'
 import { darken } from 'polished'
 import React, { useState } from 'react'
 import { ChevronDown, ChevronUp } from 'react-feather'
@@ -12,7 +12,7 @@ import { useTokenBalance } from '../../state/wallet/hooks'
 import { ExternalLink, TYPE, HideExtraSmall, ExtraSmallOnly } from '../../theme'
 import { currencyId } from '../../utils/currencyId'
 import { unwrappedToken } from '../../utils/wrappedCurrency'
-import { ButtonPrimary, ButtonSecondary, ButtonEmpty, ButtonUNIGradient } from '../Button'
+import { ButtonPrimary, ButtonSecondary, ButtonEmpty, ButtonVNTWGradient } from '../Button'
 import { transparentize } from 'polished'
 import { CardNoise } from '../earn/styled'
 
@@ -203,14 +203,14 @@ export default function FullPositionCard({ pair, border, stakedBalance }: Positi
               {!currency0 || !currency1 ? <Dots>Loading</Dots> : `${currency0.symbol}/${currency1.symbol}`}
             </Text>
             {!!stakedBalance && (
-              <ButtonUNIGradient as={Link} to={`/uni/${currencyId(currency0)}/${currencyId(currency1)}`}>
-                <HideExtraSmall>Earning UNI</HideExtraSmall>
+              <ButtonVNTWGradient as={Link} to={`/vntw/${currencyId(currency0)}/${currencyId(currency1)}`}>
+                <HideExtraSmall>Earning VNTW</HideExtraSmall>
                 <ExtraSmallOnly>
                   <span role="img" aria-label="bolt">
                     ⚡
                   </span>
                 </ExtraSmallOnly>
-              </ButtonUNIGradient>
+              </ButtonVNTWGradient>
             )}
           </AutoRow>
 
@@ -306,7 +306,7 @@ export default function FullPositionCard({ pair, border, stakedBalance }: Positi
             <ButtonSecondary padding="8px" borderRadius="8px">
               <ExternalLink
                 style={{ width: '100%', textAlign: 'center' }}
-                href={`https://uniswap.info/account/${account}`}
+                href={`https://valuenetworklive2021.github.io/valueswap-info/account/${account}`}
               >
                 View accrued fees and analytics<span style={{ fontSize: '11px' }}>↗</span>
               </ExternalLink>
@@ -338,7 +338,7 @@ export default function FullPositionCard({ pair, border, stakedBalance }: Positi
                 padding="8px"
                 borderRadius="8px"
                 as={Link}
-                to={`/uni/${currencyId(currency0)}/${currencyId(currency1)}`}
+                to={`/vntw/${currencyId(currency0)}/${currencyId(currency1)}`}
                 width="100%"
               >
                 Manage Liquidity in Rewards Pool

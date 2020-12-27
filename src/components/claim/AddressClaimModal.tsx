@@ -4,7 +4,7 @@ import { AutoColumn, ColumnCenter } from '../Column'
 import styled from 'styled-components'
 import { DataCard, CardSection, Break } from '../earn/styled'
 import { RowBetween } from '../Row'
-import { TYPE, ExternalLink, CloseIcon, CustomLightSpinner, UniTokenAnimated } from '../../theme'
+import { TYPE, ExternalLink, CloseIcon, CustomLightSpinner, VntwTokenAnimated } from '../../theme'
 import { ButtonPrimary } from '../Button'
 import { useClaimCallback, useUserUnclaimedAmount, useUserHasAvailableClaim } from '../../state/claim/hooks'
 import tokenLogo from '../../assets/images/token-logo.png'
@@ -17,7 +17,7 @@ import { isAddress } from 'ethers/lib/utils'
 import Confetti from '../Confetti'
 import { CardNoise, CardBGImage, CardBGImageSmaller } from '../earn/styled'
 import { useIsTransactionPending } from '../../state/transactions/hooks'
-import { TokenAmount } from '@uniswap/sdk'
+import { TokenAmount } from '@valueswap/sdk'
 import { getEtherscanLink, shortenAddress } from '../../utils'
 
 const ContentWrapper = styled(AutoColumn)`
@@ -102,18 +102,18 @@ export default function AddressClaimModal({ isOpen, onDismiss }: { isOpen: boole
             <CardNoise />
             <CardSection gap="md">
               <RowBetween>
-                <TYPE.white fontWeight={500}>Claim UNI Token</TYPE.white>
+                <TYPE.white fontWeight={500}>Claim VNTW Token</TYPE.white>
                 <CloseIcon onClick={wrappedOnDismiss} style={{ zIndex: 99 }} stroke="white" />
               </RowBetween>
               <TYPE.white fontWeight={700} fontSize={36}>
-                {unclaimedAmount?.toFixed(0, { groupSeparator: ',' } ?? '-')} UNI
+                {unclaimedAmount?.toFixed(0, { groupSeparator: ',' } ?? '-')} VNTW
               </TYPE.white>
             </CardSection>
             <Break />
           </ModalUpper>
           <AutoColumn gap="md" style={{ padding: '1rem', paddingTop: '0' }} justify="center">
             <TYPE.subHeader fontWeight={500}>
-              Enter an address to trigger a UNI claim. If the address has any claimable UNI it will be sent to them on
+              Enter an address to trigger a VNTW claim. If the address has any claimable VNTW it will be sent to them on
               submission.
             </TYPE.subHeader>
             <AddressInputPanel value={typed} onChange={handleRecipientType} />
@@ -128,7 +128,7 @@ export default function AddressClaimModal({ isOpen, onDismiss }: { isOpen: boole
               mt="1rem"
               onClick={onClaim}
             >
-              Claim UNI
+              Claim VNTW
             </ButtonPrimary>
           </AutoColumn>
         </ContentWrapper>
@@ -145,7 +145,7 @@ export default function AddressClaimModal({ isOpen, onDismiss }: { isOpen: boole
             {!claimConfirmed ? (
               <CustomLightSpinner src={Circle} alt="loader" size={'90px'} />
             ) : (
-              <UniTokenAnimated width="72px" src={tokenLogo} />
+              <VntwTokenAnimated width="72px" src={tokenLogo} />
             )}
           </ConfirmedIcon>
           <AutoColumn gap="100px" justify={'center'}>
@@ -155,7 +155,7 @@ export default function AddressClaimModal({ isOpen, onDismiss }: { isOpen: boole
               </TYPE.largeHeader>
               {!claimConfirmed && (
                 <Text fontSize={36} color={'#ff007a'} fontWeight={800}>
-                  {unclaimedAmount?.toFixed(0, { groupSeparator: ',' } ?? '-')} UNI
+                  {unclaimedAmount?.toFixed(0, { groupSeparator: ',' } ?? '-')} VNTW
                 </Text>
               )}
               {parsedAddress && (

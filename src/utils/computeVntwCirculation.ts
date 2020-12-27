@@ -1,4 +1,4 @@
-import { JSBI, Token, TokenAmount } from '@uniswap/sdk'
+import { JSBI, Token, TokenAmount } from '@valueswap/sdk'
 import { BigNumber } from 'ethers'
 import { STAKING_GENESIS } from '../state/stake/hooks'
 
@@ -53,10 +53,10 @@ function withVesting(before: JSBI, time: BigNumber, amount: number, start: numbe
   return before
 }
 
-export function computeUniCirculation(
-  uni: Token,
+export function computeVntwCirculation(
+  vntw: Token,
   blockTimestamp: BigNumber,
-  unclaimedUni: TokenAmount | undefined
+  unclaimedVntw: TokenAmount | undefined
 ): TokenAmount {
   let wholeAmount = JSBI.BigInt(USERS_AMOUNT)
 
@@ -107,6 +107,6 @@ export function computeUniCirculation(
   wholeAmount = withVesting(wholeAmount, blockTimestamp, TEAM_YEAR_3_AMOUNT, TREASURY_BEGIN_YEAR_3, TREASURY_END_YEAR_3)
   wholeAmount = withVesting(wholeAmount, blockTimestamp, TEAM_YEAR_4_AMOUNT, TREASURY_BEGIN_YEAR_4, TREASURY_END_YEAR_4)
 
-  const total = new TokenAmount(uni, JSBI.multiply(wholeAmount, JSBI.exponentiate(JSBI.BigInt(10), JSBI.BigInt(18))))
-  return unclaimedUni ? total.subtract(unclaimedUni) : total
+  const total = new TokenAmount(vntw, JSBI.multiply(wholeAmount, JSBI.exponentiate(JSBI.BigInt(10), JSBI.BigInt(18))))
+  return unclaimedVntw ? total.subtract(unclaimedVntw) : total
 }

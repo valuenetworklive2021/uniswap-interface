@@ -1,7 +1,7 @@
-import { UNI, PRELOADED_PROPOSALS } from './../../constants/index'
-import { TokenAmount } from '@uniswap/sdk'
+import { VNTW, PRELOADED_PROPOSALS } from './../../constants/index'
+import { TokenAmount } from '@valueswap/sdk'
 import { isAddress } from 'ethers/lib/utils'
-import { useGovernanceContract, useUniContract } from '../../hooks/useContract'
+import { useGovernanceContract, useVntwContract } from '../../hooks/useContract'
 import { useSingleCallResult, useSingleContractMultipleData } from '../multicall/hooks'
 import { useActiveWeb3React } from '../../hooks'
 import { ethers, utils } from 'ethers'
@@ -9,7 +9,7 @@ import { calculateGasMargin } from '../../utils'
 import { TransactionResponse } from '@ethersproject/providers'
 import { useTransactionAdder } from '../transactions/hooks'
 import { useState, useEffect, useCallback } from 'react'
-import { abi as GOV_ABI } from '@uniswap/governance/build/GovernorAlpha.json'
+import { abi as GOV_ABI } from '@valueswap/governance/build/GovernorAlpha.json'
 
 interface ProposalDetail {
   target: string
@@ -149,47 +149,47 @@ export function useProposalData(id: string): ProposalData | undefined {
 // get the users delegatee if it exists
 export function useUserDelegatee(): string {
   const { account } = useActiveWeb3React()
-  const uniContract = useUniContract()
-  const { result } = useSingleCallResult(uniContract, 'delegates', [account ?? undefined])
+  const vntwContract = useVntwContract()
+  const { result } = useSingleCallResult(vntwContract, 'delegates', [account ?? undefined])
   return result?.[0] ?? undefined
 }
 
 // gets the users current votes
 export function useUserVotes(): TokenAmount | undefined {
   const { account, chainId } = useActiveWeb3React()
-  const uniContract = useUniContract()
+  const vntwContract = useVntwContract()
 
   // check for available votes
-  const uni = chainId ? UNI[chainId] : undefined
-  const votes = useSingleCallResult(uniContract, 'getCurrentVotes', [account ?? undefined])?.result?.[0]
-  return votes && uni ? new TokenAmount(uni, votes) : undefined
+  const vntw = chainId ? VNTW[chainId] : undefined
+  const votes = useSingleCallResult(vntwContract, 'getCurrentVotes', [account ?? undefined])?.result?.[0]
+  return votes && vntw ? new TokenAmount(vntw, votes) : undefined
 }
 
 // fetch available votes as of block (usually proposal start block)
 export function useUserVotesAsOfBlock(block: number | undefined): TokenAmount | undefined {
   const { account, chainId } = useActiveWeb3React()
-  const uniContract = useUniContract()
+  const vntwContract = useVntwContract()
 
   // check for available votes
-  const uni = chainId ? UNI[chainId] : undefined
-  const votes = useSingleCallResult(uniContract, 'getPriorVotes', [account ?? undefined, block ?? undefined])
+  const vntw = chainId ? VNTW[chainId] : undefined
+  const votes = useSingleCallResult(vntwContract, 'getPriorVotes', [account ?? undefined, block ?? undefined])
     ?.result?.[0]
-  return votes && uni ? new TokenAmount(uni, votes) : undefined
+  return votes && vntw ? new TokenAmount(vntw, votes) : undefined
 }
 
 export function useDelegateCallback(): (delegatee: string | undefined) => undefined | Promise<string> {
   const { account, chainId, library } = useActiveWeb3React()
   const addTransaction = useTransactionAdder()
 
-  const uniContract = useUniContract()
+  const vntwContract = useVntwContract()
 
   return useCallback(
     (delegatee: string | undefined) => {
       if (!library || !chainId || !account || !isAddress(delegatee ?? '')) return undefined
       const args = [delegatee]
-      if (!uniContract) throw new Error('No UNI Contract!')
-      return uniContract.estimateGas.delegate(...args, {}).then(estimatedGasLimit => {
-        return uniContract
+      if (!vntwContract) throw new Error('No VNTW Contract!')
+      return vntwContract.estimateGas.delegate(...args, {}).then(estimatedGasLimit => {
+        return vntwContract
           .delegate(...args, { value: null, gasLimit: calculateGasMargin(estimatedGasLimit) })
           .then((response: TransactionResponse) => {
             addTransaction(response, {
@@ -199,7 +199,7 @@ export function useDelegateCallback(): (delegatee: string | undefined) => undefi
           })
       })
     },
-    [account, addTransaction, chainId, library, uniContract]
+    [account, addTransaction, chainId, library, vntwContract]
   )
 }
 

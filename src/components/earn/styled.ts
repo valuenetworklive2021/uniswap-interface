@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 import { AutoColumn } from '../Column'
 
-import uImage from '../../assets/images/big_unicorn.png'
-import xlUnicorn from '../../assets/images/xl_uni.png'
+import uImage from '../../assets/images/vntw_big.png'
+import xlUnicorn from '../../assets/images/vntw_xl.png'
 import noise from '../../assets/images/noise.png'
 
 export const TextBox = styled.div`
