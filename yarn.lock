@@ -2675,10 +2675,10 @@
     semver "^7.3.2"
     tsutils "^3.17.1"
 
-"@valueswap/governance@^1.0.3":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@valueswap/governance/-/governance-1.0.3.tgz#81b26fdb40da847050996e4466dcfbff4a8510e6"
-  integrity sha512-YSiNIJTV1W+0SKIvxMde7Z7fnJc3Kq6XDgTorYVZlCqrhe1/9amBjDkcJkzkCJjZfyVbwFXFJGwhHIDb3qXqdA==
+"@valueswap/governance@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@valueswap/governance/-/governance-1.1.0.tgz#d16197a22f4fc0713e5ec5b459d1bb2a3e84e6ca"
+  integrity sha512-n2CjzJ9arLGY8TwrgiZmalZFBOJsqbXp2YMosAlzCC5Nn1e7rd/2Mmg5bATWFk/Fnls32euwhLoRttoRPi47YA==
 
 "@valueswap/lib@1.0.1":
   version "1.0.1"
