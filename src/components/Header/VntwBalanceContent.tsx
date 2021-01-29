@@ -117,7 +117,7 @@ export default function VntwBalanceContent({ setShowVntwBalanceModal }: { setSho
               <TYPE.white color="white">{totalSupply?.toFixed(0, { groupSeparator: ',' })}</TYPE.white>
             </RowBetween>
             {vntw && vntw.chainId === ChainId.MAINNET ? (
-              <ExternalLink href={`https://valuenetworklive2021.github.io/valueswap-info/token/${vntw.address}`}>View VNTW Analytics</ExternalLink>
+              <ExternalLink href={`https://info.valueswap.valuenetwork.live/token/${vntw.address}`}>View VNTW Analytics</ExternalLink>
             ) : null}
           </AutoColumn>
         </CardSection>

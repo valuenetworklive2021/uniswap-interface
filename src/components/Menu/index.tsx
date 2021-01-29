@@ -105,11 +105,11 @@ export default function Menu() {
 
       {open && (
         <MenuFlyout>
-          <MenuItem id="link" href="https://valuenetworklive2021.github.io/valueswap-protocol/">
+          <MenuItem id="link" href="https://valueswap.valuenetwork.live/">
             <Info size={14} />
             About
           </MenuItem>
-          <MenuItem id="link" href="https://valuenetworklive2021.github.io/valueswap-protocol/docs/v2">
+          <MenuItem id="link" href="https://valueswap.valuenetwork.live/docs/v2">
             <BookOpen size={14} />
             Docs
           </MenuItem>
@@ -121,7 +121,7 @@ export default function Menu() {
             <MessageCircle size={14} />
             Discord
           </MenuItem>
-          <MenuItem id="link" href="https://valuenetworklive2021.github.io/valueswap-info/">
+          <MenuItem id="link" href="https://info.valueswap.valuenetwork.live/">
             <PieChart size={14} />
             Analytics
           </MenuItem>

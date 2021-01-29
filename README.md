@@ -2,12 +2,12 @@
 
 An open source interface for Valueswap -- a protocol for decentralized exchange of Ethereum tokens.
 
-- Website: [valuenetworklive2021.github.io/valueswap-protocol](https://valuenetworklive2021.github.io/valueswap-protocol/)
-- Interface: [valuenetworklive2021.github.io/valueswap-interface](https://valuenetworklive2021.github.io/valueswap-interface)
-- Docs: [valuenetworklive2021.github.io/valueswap-protocol/docs/](https://valuenetworklive2021.github.io/valueswap-protocol/docs/)
+- Website: [valueswap.valuenetwork.live](https://valueswap.valuenetwork.live/)
+- Interface: [app.valueswap.valuenetwork.live](https://app.valueswap.valuenetwork.live)
+- Docs: [valueswap.valuenetwork.live/docs/](https://valueswap.valuenetwork.live/docs/)
 - Twitter: [@ValueswapProtocol](https://twitter.com/ValueswapProtocol)
 - Reddit: [/r/Valueswap](https://www.reddit.com/r/Valueswap/)
-- Email: [contact@valuenetworklive2021.github.io/valueswap-protocol](mailto:contact@valuenetworklive2021.github.io/valueswap-protocol)
+- Email: [contact@valuenetwork.live](mailto:contact@valuenetwork.live)
 - Discord: [Valueswap](https://discord.gg/Y7TF6QA)
 - Whitepaper: [Link](https://hackmd.io/C-DvwDSfSxuh-Gd4WKE_ig)
 
@@ -15,7 +15,7 @@ An open source interface for Valueswap -- a protocol for decentralized exchange 
 
 To access the Valueswap Interface, use an IPFS gateway link from the
 [latest release](https://github.com/valuenetworklive2021/valueswap-interface/releases/latest), 
-or visit [valuenetworklive2021.github.io/valueswap-interface](https://valuenetworklive2021.github.io/valueswap-interface).
+or visit [app.valueswap.valuenetwork.live](https://app.valueswap.valuenetwork.live).
 
 ## Listing a token
 
@@ -46,7 +46,7 @@ To have the interface default to a different network when a wallet is not connec
 3. Change `REACT_APP_NETWORK_URL` to e.g. `"https://{YOUR_NETWORK_ID}.infura.io/v3/{YOUR_INFURA_KEY}"` 
 
 Note that the interface only works on testnets where both 
-[Valueswap V2](https://valuenetworklive2021.github.io/valueswap-protocol/docs/v2/smart-contracts/factory/) and 
+[Valueswap V2](https://valueswap.valuenetwork.live/docs/v2/smart-contracts/factory/) and 
 [multicall](https://github.com/makerdao/multicall) are deployed.
 The interface will not work on other networks.
 

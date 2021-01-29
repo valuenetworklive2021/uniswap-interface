@@ -71,7 +71,7 @@ export default function Earn() {
               </RowBetween>{' '}
               <ExternalLink
                 style={{ color: 'white', textDecoration: 'underline' }}
-                href="https://valuenetworklive2021.github.io/valueswap-protocol/blog/vntw/"
+                href="https://valueswap.valuenetwork.live/blog/vntw/"
                 target="_blank"
               >
                 <TYPE.white fontSize={14}>Read more about VNTW</TYPE.white>

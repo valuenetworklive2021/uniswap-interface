@@ -317,7 +317,7 @@ export default function Header() {
           <StyledNavLink id={`stake-nav-link`} to={'/vote'}>
             Vote
           </StyledNavLink>
-          <StyledExternalLink id={`stake-nav-link`} href={'https://valuenetworklive2021.github.io/valueswap-info'}>
+          <StyledExternalLink id={`stake-nav-link`} href={'https://info.valueswap.valuenetwork.live'}>
             Charts <span style={{ fontSize: '11px' }}>↗</span>
           </StyledExternalLink>
         </HeaderLinks>

@@ -137,7 +137,7 @@ export default function ClaimModal() {
           <AutoColumn gap="md" style={{ padding: '1rem', paddingTop: '0' }} justify="center">
             <TYPE.subHeader fontWeight={500}>
               As a member of the Valueswap community you may claim VNTW to be used for voting and governance. <br /> <br />
-              <ExternalLink href="https://valuenetworklive2021.github.io/valueswap-protocol/blog/vntw">Read more about VNTW</ExternalLink>
+              <ExternalLink href="https://valueswap.valuenetwork.live/blog/vntw">Read more about VNTW</ExternalLink>
             </TYPE.subHeader>
             <ButtonPrimary
               disabled={!isAddress(account ?? '')}

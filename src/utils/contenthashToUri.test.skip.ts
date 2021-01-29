@@ -10,7 +10,7 @@ describe('#contenthashToUri', () => {
     )
   })
   it('valueswap.eth contenthash', () => {
-    expect(contenthashToUri('0xe5010170000f6170702e756e69737761702e6f7267')).toEqual('ipns://valuenetworklive2021.github.io/valueswap-interface')
+    expect(contenthashToUri('0xe5010170000f6170702e756e69737761702e6f7267')).toEqual('ipns://app.valueswap.valuenetwork.live')
   })
 })
 

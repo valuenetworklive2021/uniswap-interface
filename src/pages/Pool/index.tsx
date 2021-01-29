@@ -143,7 +143,7 @@ export default function Pool() {
               <ExternalLink
                 style={{ color: 'white', textDecoration: 'underline' }}
                 target="_blank"
-                href="https://valuenetworklive2021.github.io/valueswap-protocol/docs/v2/core-concepts/pools/"
+                href="https://valueswap.valuenetwork.live/docs/v2/core-concepts/pools/"
               >
                 <TYPE.white fontSize={14}>Read more about providing liquidity</TYPE.white>
               </ExternalLink>
@@ -189,7 +189,7 @@ export default function Pool() {
               <>
                 <ButtonSecondary>
                   <RowBetween>
-                    <ExternalLink href={'https://valuenetworklive2021.github.io/valueswap-info/account/' + account}>
+                    <ExternalLink href={'https://info.valueswap.valuenetwork.live/account/' + account}>
                       Account analytics and accrued fees
                     </ExternalLink>
                     <span> ↗</span>
