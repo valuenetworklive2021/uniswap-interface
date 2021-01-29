@@ -50,7 +50,7 @@
     "@valueswap/merkle-distributor": "1.0.0",
     "@valueswap/sdk": "1.1.2",
     "@valueswap/token-lists": "^1.0.1",
-    "@valueswap/v2-core": "1.1.0",
+    "@valueswap/v2-core": "1.2.1",
     "@valueswap/v2-periphery": "^1.1.0",
     "@reach/dialog": "^0.10.3",
     "@reach/portal": "^0.10.3",
