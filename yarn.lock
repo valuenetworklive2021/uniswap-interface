@@ -2697,12 +2697,12 @@
   resolved "https://registry.yarnpkg.com/@valueswap/merkle-distributor/-/merkle-distributor-1.0.0.tgz#75cefd111650afe5f9d71680f07014b73e75b96f"
   integrity sha512-xw06OzxfKyd1rAZPo9RFw/gDmAEXN/U6mFvbgXZjJ8EOJN+Jnb2tLTxZlfDe/dlI7czzZkKN2rfKWOisRzWDmA==
 
-"@valueswap/sdk@1.1.2":
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/@valueswap/sdk/-/sdk-1.1.2.tgz#e9692509f00df2297f68f11b0cdf0e8fcd7590aa"
-  integrity sha512-Ciru7Db0UAjgxzhc3R8u0CFdWcXHD4eF/DQJATYHu22R1268hWB+k6XONTulp/GAIC8Ip+cwYct6061zA2XizQ==
+"@valueswap/sdk@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@valueswap/sdk/-/sdk-1.2.1.tgz#ed07235ddaa6b74b52a5de2d87d1ae0d9db8bfd6"
+  integrity sha512-GRwlPGxbdDY2OyMvGl7eLwlx5GgXTI8xVQl88dDxfulTHQs5xNpd1Mv4tEWcinjZ2EONkCjvm2uetMN06+/JeA==
   dependencies:
-    "@valueswap/v2-core" "^1.1.0"
+    "@valueswap/v2-core" "^1.2.1"
     big.js "^5.2.2"
     decimal.js-light "^2.5.0"
     jsbi "^3.1.1"
@@ -2715,15 +2715,10 @@
   resolved "https://registry.yarnpkg.com/@valueswap/token-lists/-/token-lists-1.0.1.tgz#60f7a6ee8c6d646f4c26da7b6209d6bcff211295"
   integrity sha512-uypoTnsXAJbq/zp9VZNdgJkf2BVaHHR9yG1+Qnt2KbmiRYdcvHm+ioJ2ayDPJ04Vbxq1fYxpHLQFz7YQ+17rxw==
 
-"@valueswap/v2-core@1.2.1":
+"@valueswap/v2-core@1.2.1", "@valueswap/v2-core@^1.2.1":
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/@valueswap/v2-core/-/v2-core-1.2.1.tgz#1e9820b6b90cd9d2fde97b7f752c742be8ca6137"
   integrity sha512-Za6idyG1jQvH3XUHjFTsYIPz/edQ+D3gaaNU/uIIlGbhfv0TNhx8PuVMS60lWXL7CIjuLfipvrHohHo1xpuEig==
-
-"@valueswap/v2-core@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@valueswap/v2-core/-/v2-core-1.1.0.tgz#e98d42d3b601b199f2d0fcca10ac3b91222ef241"
-  integrity sha512-8voMwlwrSUdEloBAtBISgDfNgiOf8zA5SzfNl9+jhWtOruEzuxQz4SvCk1vDRM44PO5ysBXwb/XmHmLaFrnp1g==
 
 "@valueswap/v2-periphery@^1.2.1":
   version "1.2.1"

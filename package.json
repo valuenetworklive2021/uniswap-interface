@@ -48,7 +48,7 @@
     "@valueswap/governance": "^1.1.0",
     "@valueswap/liquidity-staker": "^1.0.0",
     "@valueswap/merkle-distributor": "1.0.0",
-    "@valueswap/sdk": "1.1.2",
+    "@valueswap/sdk": "1.2.1",
     "@valueswap/token-lists": "^1.0.1",
     "@valueswap/v2-core": "1.2.1",
     "@valueswap/v2-periphery": "^1.2.1",
