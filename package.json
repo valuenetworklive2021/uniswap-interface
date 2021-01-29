@@ -51,7 +51,7 @@
     "@valueswap/sdk": "1.1.2",
     "@valueswap/token-lists": "^1.0.1",
     "@valueswap/v2-core": "1.2.1",
-    "@valueswap/v2-periphery": "^1.1.0",
+    "@valueswap/v2-periphery": "^1.2.1",
     "@reach/dialog": "^0.10.3",
     "@reach/portal": "^0.10.3",
     "@reduxjs/toolkit": "^1.3.5",
